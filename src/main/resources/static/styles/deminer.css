@@ -1,0 +1,118 @@
+* {
+    font-family: 'Consolas', Arial;
+}
+
+.clear {
+    clear: both;
+}
+
+#gameWrapper {
+    width: 950px;
+    padding: 20px 0;
+    margin: 0 auto;
+}
+#header {
+    margin-bottom: 20px;
+    position: relative;
+}
+#logo {
+    display: block;
+    width: 50px;
+    height: 50px;
+    padding-top: 12px;
+    box-sizing: border-box;
+    margin-right: 10px;
+    background-color: #d9534f;
+    float: left;
+    font-size: 26px;
+    text-align: center;
+    color: white;
+    outline: none;
+    text-decoration: none;
+}
+#game-name {
+    display: block;
+    float: left;
+    color: black;
+    font-size: 50px;
+    text-transform: uppercase;
+    line-height: 1;
+}
+#restore-default-btn, #customize-btn {
+    float: right;
+    margin: 10px 0 0 10px;
+}
+
+#customize-form {
+    display: none;
+}
+
+#customize-submit-btn {
+    display: none;
+}
+
+.game-result-message {
+    display: none;
+}
+
+#timer, #remaining-flags {
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height: 1;
+    color: black;
+    font-size: 50px;
+}
+#timer-ico, #remaining-flags-ico {
+    font-size: 36px;
+}
+
+#customization-form-error {
+    display: none;
+}
+
+#total-flags-count {
+    display: none;
+}
+
+table#minefield {
+    margin: 20px auto;
+    background-color: #ebebeb;
+    border: 1px solid white;
+}
+td {
+    width: 50px;
+    height: 50px;
+    border: 1px dashed #777777;
+    text-align: center;
+    vertical-align: central;
+}
+td.unchecked {
+    font-size: 20px;
+    color: #777777;
+    cursor: pointer;
+}
+td.unchecked:hover 
+{
+    color: white;
+    background-color: #adadad;
+    border: 1px solid #adadad;
+}
+td.checked {
+    background-color: #5cb85c;
+    border: 1px dashed white;
+}
+td.flagged {
+    background-color: #3276b1;
+    border: 1px solid #3276b1;
+    cursor: pointer;
+}
+td.exploded {
+    background-color: #d9534f;
+    border: 1px solid #d9534f;
+}
+td.analysed {
+    font-size: 23px;
+    font-weight: bold;
+    color: white;
+}
