@@ -1,6 +1,5 @@
 package deminer.domain.minefield;
 
-import com.google.common.annotations.VisibleForTesting;
 import deminer.domain.cell.Cell;
 import deminer.domain.cell.CellState;
 import java.util.ArrayList;
@@ -8,6 +7,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import org.assertj.core.util.VisibleForTesting;
 
 public class Minefield 
 {   
