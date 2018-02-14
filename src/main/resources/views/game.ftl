@@ -46,7 +46,7 @@
             
             <p id="timer">
                 <span id="timer-ico" class="glyphicon glyphicon-time"></span>
-                <span id="minutes">00</span>:<span id="seconds">00</span>
+                <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
             </p>
             
             <p id="remaining-flags">
@@ -63,8 +63,9 @@
             </div>
             <div id="win-message" class="game-result-message alert alert-success">
                 You are the WINNER !&nbsp;
-                <a href="/game" class="btn btn-success">Try again</a>
-                &nbsp;or&nbsp;
+                <b>Elapsed time: <span id="elapsed-time"></span></b>&nbsp;
+                <a href="/game" class="btn btn-success">Try again</a>&nbsp;
+                or&nbsp;
                 <p class="btn btn-success" ng-click="customize()">Customize game</p>
             </div>
             

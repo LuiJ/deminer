@@ -86,6 +86,7 @@ deminer.controller("gameController", function($scope, $http, $log){
     
     function showWinMessage(){
         hideTimerAndRemainingFlagsCount();
+        $("#elapsed-time").html(elapsedTime);
         $("#win-message").show(100);
     }
     
@@ -191,20 +192,30 @@ $("#customize-form input").mask("0#");
 
 // Timer
 
-var start = new Date;
+var startTime = new Date();
+var elapsedTime = "00:00:00";
 
 function updateTimer(){
-    var totalSeconds = Math.floor((new Date - start) / 1000);
-    var totalMinutes = Math.floor(totalSeconds / 60);
-    var secondsOfMinute = totalSeconds % 60;
-    var mm = "00";
-    var ss = "00";
-    if (totalMinutes < 59){
-        mm = totalMinutes < 10 ? "0" + totalMinutes : totalMinutes;
-        ss = secondsOfMinute < 10 ? "0" + secondsOfMinute : secondsOfMinute;
-    }
+    var second = 1000;
+    var minute = second * 60;
+    var hour = minute * 60;
+    
+    var now = new Date();
+    var elapsedTimeInMilliseconds = now - startTime;
+    
+    var hours = Math.floor(elapsedTimeInMilliseconds / hour);
+    var minutes = Math.floor((elapsedTimeInMilliseconds % hour) / minute);
+    var seconds = Math.floor((elapsedTimeInMilliseconds % minute) / second);
+    
+    var hh = hours < 10 ? "0" + hours : hours;
+    var mm = minutes < 10 ? "0" + minutes : minutes;
+    var ss = seconds < 10 ? "0" + seconds : seconds;
+    
+    $("#hours").html(hh);
     $("#minutes").html(mm);
     $("#seconds").html(ss);
+    
+    elapsedTime = hh + ":" + mm + ":" + ss;
 }
 
 setInterval(function(){
