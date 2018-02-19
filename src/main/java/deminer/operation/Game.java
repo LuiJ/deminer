@@ -3,7 +3,6 @@ package deminer.operation;
 import deminer.domain.minefield.AnalysedCell;
 import deminer.domain.minefield.Minefield;
 import deminer.domain.minefield.MinefieldConfiguration;
-import deminer.domain.minefield.MinefieldCreationException;
 import deminer.domain.minefield.MinefieldFactory;
 import deminer.domain.minefield.Point;
 import java.util.List;
@@ -41,7 +40,7 @@ public class Game
         return configuration;
     }
     
-    public void start() throws MinefieldCreationException
+    public void start()
     {
         MinefieldFactory factory = new MinefieldFactory(configuration);
         minefield = factory.create();

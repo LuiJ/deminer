@@ -17,7 +17,7 @@ public class MinefieldTest
     private Minefield minefield;
     
     @Before
-    public void setUp() throws MinefieldCreationException
+    public void setUp()
     {
         MinefieldConfiguration configuration = new MinefieldConfiguration(8, 8, 10);
         minefield = new MinefieldFactory(configuration).create();

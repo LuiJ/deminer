@@ -29,7 +29,7 @@ public class MinefieldFactory
         numberOfMines = configuration.getNumberOfMines();
     }
     
-    public Minefield create() throws MinefieldCreationException
+    public Minefield create()
     {
         checkConfiguration();
         
@@ -38,7 +38,7 @@ public class MinefieldFactory
         return new Minefield(cells);
     }
     
-    private void checkConfiguration() throws MinefieldCreationException
+    private void checkConfiguration()
     {
         if (width == 0 || height == 0)
         {

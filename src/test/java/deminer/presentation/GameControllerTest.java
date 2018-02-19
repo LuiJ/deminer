@@ -36,7 +36,7 @@ public class GameControllerTest
     HttpServletResponse mockResponse = new MockHttpServletResponse();
     
     @Test
-    public void openGame() throws MinefieldCreationException
+    public void openGame()
     {
         String expectedViewName = "game";
         
@@ -132,16 +132,14 @@ public class GameControllerTest
     }
     
     @Test
-    public void startGame_shouldStartGameWithCorrectConfiguration() 
-        throws MinefieldCreationException
+    public void startGame_shouldStartGameWithCorrectConfiguration()
     {
         gameController.startGame(mockGameModel);
         verify(game, times(1)).start();
     }
     
     @Test
-    public void startGame_shouldReplaceIncorrectCofigurationWithDefaultAndStart() 
-        throws MinefieldCreationException
+    public void startGame_shouldReplaceIncorrectCofigurationWithDefaultAndStart()
     {        
         doThrow(MinefieldCreationException.class).doNothing().when(game).start();
         

@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 public class MinefieldFactoryTest 
 {    
     @Test
-    public void create() throws MinefieldCreationException
+    public void create()
     {
         int minefieldWidth = 8;
         int minefieldHeight = 8;
@@ -28,7 +28,6 @@ public class MinefieldFactoryTest
     
     @Test(expected = MinefieldCreationException.class)
     public void create_shouldFailWhenWidthOrHeightIsZero()
-        throws MinefieldCreationException
     {
         int width = 0;
         int height = 0;
@@ -40,8 +39,19 @@ public class MinefieldFactoryTest
     }
     
     @Test(expected = MinefieldCreationException.class)
+    public void create_shouldFailWhenNumberOfMinesLessThanOne()
+    {
+        int width = 3;
+        int height = 3;
+        int numberOfMines = 0;        
+        MinefieldConfiguration configuration = 
+            new MinefieldConfiguration(width, height, numberOfMines);
+        
+        new MinefieldFactory(configuration).create();
+    }
+    
+    @Test(expected = MinefieldCreationException.class)
     public void create_shouldFailWhenNumberOfMinesExceedsMinefieldSize()
-        throws MinefieldCreationException
     {
         int width = 3;
         int height = 3;

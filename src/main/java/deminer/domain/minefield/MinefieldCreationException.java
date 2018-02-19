@@ -1,6 +1,6 @@
 package deminer.domain.minefield;
 
-public class MinefieldCreationException extends Exception
+public class MinefieldCreationException extends RuntimeException
 {
     public MinefieldCreationException(String message)
     {
