@@ -58,18 +58,6 @@ public class MinefieldFactory
     private Map<Point, Cell> createCells()
     {
         Map<Point, Cell> cells = createEmptyCellsMap(); 
-        initialize(cells);
-        return cells;
-    }
-    
-    private Map<Point, Cell> createEmptyCellsMap()
-    {
-        int mapCapacity = width * height;
-        return new HashMap<>(mapCapacity);
-    }
-    
-    private void initialize(Map<Point, Cell> cells)
-    {
         Set<Point> pointsForMinedCells = getPointsForMinedCells();         
         for (int y = 1; y <= height; y++)
         {
@@ -89,6 +77,13 @@ public class MinefieldFactory
                 cells.put(point, cell);
             }
         }
+        return cells;
+    }
+    
+    private Map<Point, Cell> createEmptyCellsMap()
+    {
+        int mapCapacity = width * height;
+        return new HashMap<>(mapCapacity);
     }
     
     @VisibleForTesting
