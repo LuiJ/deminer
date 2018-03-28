@@ -1,4 +1,4 @@
-package deminer.operation;
+package deminer.application;
 
 import deminer.domain.minefield.AnalysedCell;
 import java.util.ArrayList;

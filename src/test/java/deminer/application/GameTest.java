@@ -1,5 +1,7 @@
-package deminer.operation;
+package deminer.application;
 
+import deminer.application.Game;
+import deminer.application.GameState;
 import deminer.domain.minefield.AnalysedCell;
 import deminer.domain.minefield.Minefield;
 import java.util.Arrays;
