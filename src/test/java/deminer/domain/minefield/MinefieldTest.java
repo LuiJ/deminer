@@ -1,7 +1,6 @@
 package deminer.domain.minefield;
 
 import deminer.domain.cell.Cell;
-import deminer.domain.cell.CellState;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -62,7 +61,7 @@ public class MinefieldTest
         
         clearMinefield.getCells().entrySet().forEach(entry -> 
             {
-                assertEquals(CellState.CHECKED, entry.getValue().getState());
+                assertTrue(entry.getValue().isChecked());
             });
     }
     
@@ -71,7 +70,7 @@ public class MinefieldTest
     {
         Map<Point, Cell> cells = new HashMap<>();
         
-        String state1 = CellState.CHECKED.toString();
+        String state1 = "CHECKED";
         int x1 = 1;
         int y1 = 1;
         int minesAround1 = 0;
@@ -81,7 +80,7 @@ public class MinefieldTest
         cell1.check();
         cells.put(point1, cell1);
         
-        String state2 = CellState.FLAGGED.toString();
+        String state2 = "FLAGGED";
         int x2 = 2;
         int y2 = 1;
         int minesAround2 = 0;

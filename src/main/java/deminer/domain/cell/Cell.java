@@ -45,9 +45,9 @@ public class Cell
         this.state = state;
     }
     
-    public CellState getState()
+    public String getState()
     {
-        return state;
+        return state.toString();
     }
     
     public void check()
@@ -58,5 +58,30 @@ public class Cell
     public void setFlag()
     {
         state.setFlag(this);
+    }
+    
+    public boolean isUnchecked()
+    {
+        return state == CellState.UNCHECKED;
+    }
+    
+    public boolean isChecked()
+    {
+        return state == CellState.CHECKED;
+    }
+    
+    public boolean isFlagged()
+    {
+        return state == CellState.FLAGGED;
+    }
+    
+    public boolean isExploded()
+    {
+        return state == CellState.EXPLODED;
+    }
+    
+    public boolean isAnalysed()
+    {
+        return isChecked() || isFlagged() || isExploded();
     }
 }

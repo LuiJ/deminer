@@ -14,7 +14,7 @@ public class CellTest
         Cell cell = Cell.newClearCell(5);
         
         assertFalse(cell.hasMine());
-        assertEquals(CellState.UNCHECKED, cell.getState());
+        assertTrue(cell.isUnchecked());
     }
     
     @Test
@@ -23,7 +23,7 @@ public class CellTest
         Cell cell = Cell.newMinedCell(5);
         
         assertTrue(cell.hasMine());
-        assertEquals(CellState.UNCHECKED, cell.getState());
+        assertTrue(cell.isUnchecked());
     }
     
     @Test
@@ -32,7 +32,7 @@ public class CellTest
         Cell cell = Cell.newNullCell();
         
         assertFalse(cell.hasMine());
-        assertEquals(CellState.UNCHECKED, cell.getState());
+        assertTrue(cell.isUnchecked());
         assertEquals(-1, cell.getMinesAround());
     }
     
@@ -43,7 +43,7 @@ public class CellTest
         
         cell.check();
         
-        assertEquals(CellState.CHECKED, cell.getState());
+        assertTrue(cell.isChecked());
     }
     
     @Test 
@@ -53,7 +53,7 @@ public class CellTest
         
         cell.check();
         
-        assertEquals(CellState.EXPLODED, cell.getState());
+        assertTrue(cell.isExploded());
     }
     
     @Test 
@@ -63,7 +63,7 @@ public class CellTest
         
         cell.setFlag();
         
-        assertEquals(CellState.FLAGGED, cell.getState());
+        assertTrue(cell.isFlagged());
     }
     
     @Test
@@ -74,7 +74,7 @@ public class CellTest
         
         cell.check();
         
-        assertEquals(CellState.CHECKED, cell.getState());
+        assertTrue(cell.isChecked());
     }
     
     @Test
@@ -85,7 +85,7 @@ public class CellTest
         
         cell.setFlag();
         
-        assertEquals(CellState.CHECKED, cell.getState());
+        assertTrue(cell.isChecked());
     }
     
     @Test
@@ -96,7 +96,7 @@ public class CellTest
         
         cell.check();
         
-        assertEquals(CellState.FLAGGED, cell.getState());
+        assertTrue(cell.isFlagged());
     }
     
     @Test
@@ -107,7 +107,7 @@ public class CellTest
         
         cell.setFlag();
         
-        assertEquals(CellState.UNCHECKED, cell.getState());
+        assertTrue(cell.isUnchecked());
     }
     
     @Test
@@ -118,7 +118,7 @@ public class CellTest
         
         cell.check();
         
-        assertEquals(CellState.EXPLODED, cell.getState());
+        assertTrue(cell.isExploded());
     }
     
     @Test
@@ -129,7 +129,7 @@ public class CellTest
         
         cell.setFlag();
         
-        assertEquals(CellState.EXPLODED, cell.getState());
+        assertTrue(cell.isExploded());
     }
     
     private Cell getClearCell()

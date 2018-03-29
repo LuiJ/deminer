@@ -1,11 +1,11 @@
 package deminer.domain.cell;
 
-public abstract class CellState
+abstract class CellState
 {
-    public static final CellState UNCHECKED = new UncheckedState();
-    public static final CellState CHECKED = new CheckedState();
-    public static final CellState FLAGGED = new FlaggedState();
-    public static final CellState EXPLODED = new ExplodedState();
+    static final CellState UNCHECKED = new UncheckedState();
+    static final CellState CHECKED = new CheckedState();
+    static final CellState FLAGGED = new FlaggedState();
+    static final CellState EXPLODED = new ExplodedState();
     
     private final String label;
     
@@ -14,9 +14,9 @@ public abstract class CellState
         this.label = label;
     }
     
-    abstract public void check(Cell cell);
+    abstract void check(Cell cell);
     
-    abstract public void setFlag(Cell cell);
+    abstract void setFlag(Cell cell);
     
     @Override
     public String toString()

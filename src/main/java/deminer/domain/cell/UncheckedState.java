@@ -1,6 +1,6 @@
 package deminer.domain.cell;
 
-public class UncheckedState extends CellState
+class UncheckedState extends CellState
 {
     private static final String UNCHECKED_STATE_LABEL = "UNCHECKED";
     
@@ -10,7 +10,7 @@ public class UncheckedState extends CellState
     }
     
     @Override
-    public void check(Cell cell)
+    void check(Cell cell)
     {
         if (cell.hasMine())
         {
@@ -23,7 +23,7 @@ public class UncheckedState extends CellState
     }
     
     @Override
-    public void setFlag(Cell cell)
+    void setFlag(Cell cell)
     {
         cell.setState(FLAGGED);
     }

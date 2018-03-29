@@ -2,7 +2,7 @@ package deminer.domain.cell;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class NullCellTest 
 {   
@@ -13,7 +13,7 @@ public class NullCellTest
         
         cell.check();
         
-        assertEquals(CellState.UNCHECKED, cell.getState());
+        assertTrue(cell.isUnchecked());
     }
     
     @Test
@@ -23,7 +23,7 @@ public class NullCellTest
         
         cell.setFlag();
         
-        assertEquals(CellState.UNCHECKED, cell.getState());
+        assertTrue(cell.isUnchecked());
     }
 }
 

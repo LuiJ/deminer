@@ -1,9 +1,7 @@
 package deminer.domain.minefield;
 
 import deminer.domain.cell.Cell;
-import deminer.domain.cell.CellState;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -16,10 +14,7 @@ public class Minefield
     @VisibleForTesting
     static final String DEMINED_MINEFIELD_STATE = "DEMINED";
     @VisibleForTesting
-    static final String EXPLODED_MINEFIELD_STATE = "EXPLODED";
-    
-    private static final List<CellState> ANALYSED_CELLS_STATES = 
-        Arrays.asList(CellState.CHECKED, CellState.FLAGGED, CellState.EXPLODED);
+    static final String EXPLODED_MINEFIELD_STATE = "EXPLODED";   
     
     private final Map<Point, Cell> cells;
     private String state;
@@ -64,7 +59,7 @@ public class Minefield
         for (Map.Entry<Point, Cell> entry : cells.entrySet())
         {
             Cell cell = entry.getValue();
-            if (ANALYSED_CELLS_STATES.contains(cell.getState()))
+            if (cell.isAnalysed())
             {
                 Point point = entry.getKey();
                 analysedCells.add(newAnalysedCell(point, cell));
@@ -110,10 +105,7 @@ public class Minefield
     private void checkSurroundings(Point point)
     {
         point.getSurroundPoints().stream()
-            .filter(p -> 
-                {
-                    return getCellAt(p).getState() == CellState.UNCHECKED;
-                })
+            .filter(p -> getCellAt(p).isUnchecked())
             .forEach(neighborPoint -> checkCellAt(neighborPoint));                
     }
     
@@ -134,7 +126,7 @@ public class Minefield
         for (Map.Entry<Point, Cell> entry : cells.entrySet())
         {
             Cell cell = entry.getValue();
-            if (cell.getState() == CellState.EXPLODED)
+            if (cell.isExploded())
             {
                 return true;
             }
@@ -149,7 +141,7 @@ public class Minefield
         for (Map.Entry<Point, Cell> entry : cells.entrySet())
         {
             Cell cell = entry.getValue();
-            if (cell.getState() == CellState.CHECKED)
+            if (cell.isChecked())
             {
                 numberOfCheckedCells++;
             }
@@ -164,7 +156,7 @@ public class Minefield
         for (Map.Entry<Point, Cell> entry : cells.entrySet())
         {
             Cell cell = entry.getValue();
-            if (cell.getState() == CellState.FLAGGED)
+            if (cell.isFlagged())
             {
                 numberOfFlaggedCells++;
             }
@@ -177,7 +169,7 @@ public class Minefield
         int x = point.getX();
         int y = point.getY();
         int minesAround = cell.getMinesAround();
-        String callState = cell.getState().toString();
+        String callState = cell.getState();
         
         return new AnalysedCell(x, y, minesAround, callState);
     }

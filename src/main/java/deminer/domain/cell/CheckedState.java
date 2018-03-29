@@ -1,6 +1,6 @@
 package deminer.domain.cell;
 
-public class CheckedState extends CellState
+class CheckedState extends CellState
 {
     private static final String CHECKED_STATE_LABEL = "CHECKED";
     
@@ -10,12 +10,12 @@ public class CheckedState extends CellState
     }
     
     @Override
-    public void check(Cell cell)
+    void check(Cell cell)
     {
     }
     
     @Override
-    public void setFlag(Cell cell)
+    void setFlag(Cell cell)
     {
     }
 }

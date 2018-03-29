@@ -1,6 +1,6 @@
 package deminer.domain.cell;
 
-public class ExplodedState extends CellState
+class ExplodedState extends CellState
 {
     private static final String EXPLODED_STATE_LABEL = "EXPLODED";
     
@@ -10,12 +10,12 @@ public class ExplodedState extends CellState
     }
     
     @Override
-    public void check(Cell cell)
+    void check(Cell cell)
     {
     }
     
     @Override
-    public void setFlag(Cell cell)
+    void setFlag(Cell cell)
     {
     }
 }
