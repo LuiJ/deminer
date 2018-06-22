@@ -1,17 +1,13 @@
 package deminer.application;
 
+import java.util.List;
+
 import deminer.domain.minefield.AnalysedCell;
 import deminer.domain.minefield.Minefield;
 import deminer.domain.minefield.MinefieldConfiguration;
 import deminer.domain.minefield.MinefieldFactory;
 import deminer.domain.minefield.Point;
-import java.util.List;
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
-import org.springframework.stereotype.Component;
 
-@Component
-@Scope(value="session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class Game 
 {    
     private static final int DEFAULT_MINEFIELD_WIDTH = 8;

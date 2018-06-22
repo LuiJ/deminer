@@ -1,10 +1,5 @@
 package deminer.presentation;
 
-import deminer.domain.minefield.MinefieldConfiguration;
-import deminer.domain.minefield.MinefieldCreationException;
-import deminer.domain.minefield.Point;
-import deminer.application.Game;
-import deminer.application.GameState;
 import javax.servlet.http.HttpServletResponse;
 import org.assertj.core.util.VisibleForTesting;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,17 +12,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import deminer.domain.minefield.MinefieldConfiguration;
+import deminer.domain.minefield.MinefieldCreationException;
+import deminer.domain.minefield.Point;
+import deminer.application.Game;
+import deminer.application.GameState;
+
 @Controller
 public class GameController 
 {
-    private static final String GAME_URI = "/game";
     private static final String DEFAULT_GAME_URI = "/game/default";
     private static final String CUSTOM_GAME_URI = "/game/custom";
     private static final String UPDATE_CELL_STATE_URI = "game/cell/{x}/{y}";
     private static final String GAME_STATE_URI = "/game/state";
     
+    private static final String REDIRECT_TO_GAME = "redirect:/game";
     private static final String GAME_VIEW_NAME = "game";
-    private static final String REDIRECT_LINE = "redirect:" + GAME_URI;
     
     private static final String GAME_MODEL_ATTRIBUTE = "game";
     private static final String ERROR_MESSAGE_MODEL_ATTRIBUTE = "errorMessage";
@@ -41,7 +41,7 @@ public class GameController
     @Autowired
     private Game game;
     
-    @RequestMapping(value=GAME_URI, method=RequestMethod.GET)
+    @RequestMapping(value={"/", "/game"}, method=RequestMethod.GET)
     public String openGame(Model gameModel)
     {
         startGame(gameModel);
@@ -52,7 +52,7 @@ public class GameController
     public String openDefaultGame()
     {
         game.configure(Game.DEFAULT_CONFIGURATION);
-        return REDIRECT_LINE;
+        return REDIRECT_TO_GAME;
     }
     
     @RequestMapping(value=CUSTOM_GAME_URI, method=RequestMethod.POST)
@@ -62,7 +62,7 @@ public class GameController
         MinefieldConfiguration configuration = 
             new MinefieldConfiguration(width, height, numberOfMines);
         game.configure(configuration);
-        return REDIRECT_LINE;
+        return REDIRECT_TO_GAME;
     }
     
     @RequestMapping(value=UPDATE_CELL_STATE_URI, method=RequestMethod.PUT)

@@ -1,11 +1,12 @@
 package deminer.domain.minefield;
 
-import deminer.domain.cell.Cell;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import org.assertj.core.util.VisibleForTesting;
+
+import deminer.domain.cell.Cell;
 
 public class Minefield 
 {   

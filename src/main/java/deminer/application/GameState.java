@@ -1,8 +1,9 @@
 package deminer.application;
 
-import deminer.domain.minefield.AnalysedCell;
 import java.util.ArrayList;
 import java.util.List;
+
+import deminer.domain.minefield.AnalysedCell;
 
 public class GameState 
 {

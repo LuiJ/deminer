@@ -1,12 +1,13 @@
 package deminer.domain.minefield;
 
-import deminer.domain.cell.Cell;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 import org.assertj.core.util.VisibleForTesting;
+
+import deminer.domain.cell.Cell;
 
 public class MinefieldFactory 
 {    
